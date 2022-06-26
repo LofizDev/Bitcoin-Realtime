@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import News from './components/News';
+import { jumbotron } from 'bootstrap-css'
+import Weather from './components/Weather';
+import Bitcoin from './components/Bitcoin/Bitcoin'
+import TableCoin from './components/Bitcoin/TableCoin';
+import TableTrade from './components/TableTrade/TableTrade';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Tabs
+      defaultActiveKey="news"
+      id="uncontrolled-tab-example"
+      className="mb-3 tab_custom"
+    >
+      <Tab eventKey="news" title="Tin Tức">
+        <News />
+      </Tab>
+      <Tab eventKey="weather" title="Thời Tiết">
+        <Weather />
+      </Tab>
+      <Tab eventKey="bitcoin" title="Tiền Điện Tử">
+        <TableCoin />
+      </Tab>
+      <Tab eventKey="bitcoinRealtime" title="Bitcoin Realtime">
+        <TableTrade />
+      </Tab>
+
+    </Tabs>
   );
 }
 
